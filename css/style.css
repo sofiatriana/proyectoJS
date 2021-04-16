@@ -1,0 +1,137 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Lora', serif;
+    font-weight: 400;
+    background-color: #1d061a;
+}
+
+.marca-navbar{
+    font-weight: 500;
+}
+.caja{
+    position: relative;
+    width: 350px;
+    height: 400px;
+}
+.caja::before{
+    content:'';
+    position: absolute;
+    top:0;
+    left:50px;
+    width: 50%;
+    height: 100%;
+    background: #ffffff;
+    border-radius: 8px;
+    transform: skewX(15deg);
+    transition: 0.5s;
+}
+.caja::after{
+    content:'';
+    position: absolute;
+    top:0;
+    left:50px;
+    width: 50%;
+    height: 100%;
+    background: #ffffff;
+    border-radius: 8px;
+    transform: skewX(15deg);
+    transition: 0.5s;
+    filter: blur(30px);
+}
+.caja:hover:before,
+.caja:hover:after{
+    transform: skewX(0deg);
+    left: 20px;
+    width: calc(100% - 90px);
+}
+.caja:nth-child(1):before,
+.caja:nth-child(1):after{
+    background: linear-gradient(315deg, #0a0905,#ff0058);
+}
+.caja:nth-child(2):before,
+.caja:nth-child(2):after{
+    background: linear-gradient(315deg, #03a9f4,#ff0058);
+}
+.caja:nth-child(3):before,
+.caja:nth-child(3):after{
+    background: linear-gradient(315deg, #4dff03,#00d0ff);
+}
+.caja span{
+    top: 0;
+    left: 0;
+    right: 0;bottom: 0;
+    z-index: 50;
+    pointer-events: none;
+}
+.caja span::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    background-color: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    transition: 0.5s;
+    animation: animate 2s ease-in-out infinite;
+    box-shadow: 0 5px 15px rgba(0,0,0, 0.05);
+}
+.caja:hover span::before{
+    top: -50px;
+    left: 50px;
+    width: 100px;
+    height: 100px;
+    opacity: 1;
+}
+.caja span::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    background-color: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    transition: 0.5s;
+    animation: animate 2s ease-in-out infinite;
+    box-shadow: 0 5px 15px rgba(0,0,0, 0.05);
+    animation-delay: -1s;
+}
+.caja:hover span::after{
+    bottom: -50px;
+    right: 50px;
+    width: 100px;
+    height: 100px;
+    opacity: 1;
+}
+@keyframes animate {
+    0%,100%{
+        transform: translateY(10px);
+    }
+    50%{
+        transform: translateY(-10px);
+    }
+}
+.caja .content{
+    position: relative;
+    left: 0;
+    padding: 20px 40px;
+    background: rgba(255,255,255,0.05);
+    box-shadow: 0 5px 15px rgba(0,0,0, 0.1);
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+    z-index: 1;
+    transition: 0.5s;
+}
+.caja:hover .content{
+    left: -25px;
+    padding: 60px 40px;
+}
