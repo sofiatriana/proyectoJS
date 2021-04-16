@@ -1,5 +1,11 @@
+let bienvenida = '¡Bienvenidos a Parvati!'
 
-// let productos = 'Pantalon zara';
+function saludoBienvenida() {
+    let otraBienvenida = bienvenida + ' Nos encanta ver a los clientes felices tanto como cuidar a el planeta'
+    alert(otraBienvenida)
+}
+saludoBienvenida()
+
 let productos = parseInt(prompt('Prefieres 1: Blusa Shein, 2: Pantalon zara , 3: Tennis Adidas, 4: Chaqueta H & M , 5: Falda Forever 21, 6: Tennis Nike'))
 let mensaje = '';
      switch(productos){
