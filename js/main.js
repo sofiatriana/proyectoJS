@@ -1,35 +1,76 @@
 
+const divProductos = document.getElementById('divProductos')
 
-let productos = [
-    {marca: 'Shein', prenda: 'Blusa', precio: 78},
-    {marca: 'Zara', prenda: 'Pantalón', precio: 56},
-    {marca: 'Adidas', prenda: 'Tennis', precio: 67},
-    {marca: 'H & M', prenda: 'Chaqueta', precio: 87},
-    {marca: 'Forever21', prenda: 'Falda', precio: 45},
-    {marca: 'Nike', prenda: 'Leggins', precio: 30}
+mostrarProductos(productosAdidas)
+
+function mostrarProductos(array) {
+
+    divProductos.innerHTML = ''
+
+    array.forEach((contenedor) => {
     
-]
-let carrito = [];
-carrito.push = (productos[3])
-console.log(carrito)
-
-let escogerMarca = productos.filter (function(productos) {
-      return productos.marca === 'Adidas';
-})
-.map(function(productos){
-     return productos.prenda;
-})
+        let div = document.createElement('div')
+        div.classList.add('container','contenedor', 'mb-5')
+        div.innerHTML = `
+        <ul class="thumb">
+                  <li class="d-flex justify-content-center align-items-center"><img src=${contenedor.img} alt=""></li>
+                  <li class="d-flex justify-content-center align-items-center"><img src=${contenedor.img} alt=""></li>
+                  <li class="d-flex justify-content-center align-items-center"><img src=${contenedor.img} alt=""></li>
+              </ul>
+              <div class="imgBox d-flex flex-column align-items-center justify-content-between">
+                  <h3 class="text-light">${contenedor.prenda} Adidas </h3>
+                  <img src=${contenedor.img} alt="" class="imagen">
+                  <ul class="tamaño d-flex justify-content-center align-items-center">
+                      <span class="text-light">Talla:</span>
+                      <li class="d-flex justify-content-center align-items-center">${contenedor.talla}</li>
+                      <span class="text-light">Precio:</span>
+                      <li class="d-flex justify-content-center align-items-center">${contenedor.precio}</li>
+                  </ul>
+                  <button class="btn" onclick=agregarProductos(${contenedor.id})>Añadir al carrito</button>
+              </div>
+        `
+        divProductos.appendChild(div)
     
+    })
+}
+const carrito = []
 
-console.log(escogerMarca);
+function agregarProductos(id){
+    const productoEscogido = productosAdidas.find (el => el.id == id)
+    if (productoEscogido) {
+        carrito.push(productoEscogido)
+    }
+    actualizarCarrito()
+}
 
-let escoja = [];
-for (let i = 0; i < productos.length; i++){
-    if (productos[i].marca === 'Adidas'){
-        escoja.push(productos[i].prenda);
-        escoja.push(productos[i].precio);
-        
+function actualizarCarrito() {
+    const carritoContenedor = document.getElementById('carrito-contenedor')
+    carrito.forEach((contenedor) => {
+        carritoContenedor.innerHTML +=   `         
+        <div class="productoCarrito">
+            <p class="text-light">${contenedor.prenda}</p>
+            <p class="text-light">Precio: ${contenedor.precio}</p>
+            <button class="boton-eliminar"><i class="fas fa-trash-alt"></i></button>
+        </div>  
+        <p class="precioProducto text-light pt-3">Precio total: $<span id="precioTotal"></span></p>`
+    })
+    actualizarCarrito()
+}
+function filtrarPrendas() {
+    
+    const talles = document.getElementById('prendas')
+    
+    if (talles.value == 'Todos') {
+        mostrarProductos(productosAdidas)
+    } else {
+        const arrayFiltrado = productosAdidas.filter(contenedor => contenedor.prenda == prendas.value)
+        mostrarProductos(arrayFiltrado)
     }
 }
-console.log(escoja);
+
+const talles = document.getElementById('prendas')
+
+talles.addEventListener('change', ()=>{
+    filtrarPrendas()
+})
 

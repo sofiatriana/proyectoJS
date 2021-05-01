@@ -39,9 +39,42 @@
 
     <main>
         <div class="pt-5 col-sm-12 col-md-8 col-lg-6">
-            <h2 class="text-light">ADIDAS <button class="btnCarrito" id="btn-Carrito"><i class="fas fa-shopping-cart "></i>
+          <div class="row justify-content-between">
+            <h2 class="text-light">ADIDAS <button class="btnCarrito" id="btn-Carrito" data-toggle="modal" data-target=".modal"><i class="fas fa-shopping-cart "></i>
               <span id="contadorCarrito">0</span>
             </button></h2>
+            <select id="prendas" class="select mb-1">
+              <option value="Todos">Todos</option>
+              <option value="Leggins">Leggins</option>
+              <option value="Tennis">Tennis</option>
+              <option value="Saco">Saco</option>
+          </select>
+          </div>
+          <div class="modal" tabindex="-1" role="dialog" id="modal">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header modal-color">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+          
+                <div class="modal-body modal-color" id="carrito-contenedor">
+                     <!-- <div class="productoCarrito">
+                        <p class="text-light">Buzo 1</p>
+                        <p class="text-light">Precio: $1200</p>
+                        <button class="boton-eliminar"><i class="fas fa-trash-alt"></i></button>
+                      </div>  
+                     <p class="precioProducto text-light pt-3">Precio total: $<span id="precioTotal"></span></p> -->
+                </div>
+                <div class="modal-footer modal-color">
+                  <button type="button" class="btn btn-primary btn-color">Vaciar Carrito</button>
+                  <button type="button" class="btn btn-secondary">Comprar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
             <p class="text-light">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat neque quos quam, nihil aspernatur repellat
             error quisquam veniam libero reiciendis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde 
@@ -50,69 +83,16 @@
            </p>
         </div>
 
-      <div class="d-flex justify-content-between flex-wrap pt-4">
-          <div class="container contenedor mb-5">
-              <ul class="thumb">
-                  <li class="d-flex justify-content-center align-items-center"><img src="../img/adidas-tennis-morados.png" alt=""></li>
-                  <li class="d-flex justify-content-center align-items-center"><img src="../img/adidas-tennis-morados.png" alt=""></li>
-                  <li class="d-flex justify-content-center align-items-center"><img src="../img/adidas-tennis-morados.png" alt=""></li>
-              </ul>
-              <div class="imgBox d-flex flex-column align-items-center justify-content-between">
-                  <h3 class="text-light">Tennis Adidas </h3>
-                  <img src="../img/adidas-tennis-morados.png" alt="">
-                  <ul class="tamaño d-flex justify-content-center align-items-center">
-                      <span class="text-light">Tamaño</span>
-                      <li class="d-flex justify-content-center align-items-center">37</li>
-                  </ul>
-                  <a href="#" class="btn">Añadir al carrito</a>
-              </div>
-            </div>
-            
-            <div class="container contenedor mb-5">
-                <ul class="thumb">
-                    <li class="d-flex justify-content-center align-items-center"><img src="../img/adidas-saco-azulrojo.jpg" alt=""></li>
-                    <li class="d-flex justify-content-center align-items-center"><img src="../img/adidas-saco-azulrojo.jpg" alt=""></li>
-                    <li class="d-flex justify-content-center align-items-center"><img src="../img/adidas-saco-azulrojo.jpg" alt=""></li>
-                </ul>
-                <div class="imgBox d-flex flex-column align-items-center justify-content-between">
-                    <h3 class="text-light">Tennis Adidas </h3>
-                    <img src="../img/adidas-saco-azulrojo.jpg" class="adidas-saco-azulrojo" alt="">
-                    <ul class="tamaño d-flex justify-content-center align-items-center">
-                        <span class="text-light">Tamaño</span>
-                        <li class="d-flex justify-content-center align-items-center">35</li>
-                    </ul>
-                    <a href="#" class="btn">Añadir al carrito</a>
-                </div>
-            </div>
 
-            <div class="container contenedor mb-5">
-                  <ul class="thumb">
-                      <li class="d-flex justify-content-center align-items-center"><img src="../img/adidas-leggins-negro.jpg" alt=""></li>
-                      <li class="d-flex justify-content-center align-items-center"><img src="../img/adidas-leggins-negro.jpg" alt=""></li>
-                      <li class="d-flex justify-content-center align-items-center"><img src="../img/adidas-leggins-negro.jpg" alt=""></li>
-                  </ul>
-                  <div class="imgBox d-flex flex-column align-items-center justify-content-between">
-                      <h3 class="text-light">Tennis Adidas </h3>
-                      <img src="../img/adidas-leggins-negro.jpg"  class="adidas-leggins-negro" alt="">
-                      <ul class="tamaño d-flex justify-content-center align-items-center">
-                          <span class="text-light">Tamaño</span>
-                          <li class="d-flex justify-content-center align-items-center">35</li>
-                      </ul>
-                      <a href="#" class="btn">Añadir al carrito</a>
-                  </div>
-             </div>
-         </div>
-         </div>
+      <div class="d-flex justify-content-between flex-wrap pt-4" id="divProductos"></div>
     </main>
-
-
-
 
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/70bed78305.js" crossorigin="anonymous"></script>
-    <!-- <script src="js/main.js"></script> -->
+    <script src="../js/stock.js"></script>
+    <script src="../js/main.js"></script>
 </body>
 </html>

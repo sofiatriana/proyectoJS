@@ -17,14 +17,17 @@ body{
     margin-left: 1em;
     background-color:rgba(255,255,255, 0.1);
     border: none;
-}
-.btnCarrito:hover{
-    border-radius: 2px;
-    background-color: rgba(255,255,255,0.1);
     backdrop-filter: blur(10px);
-    transition: 0.25s;
-    animation: animate 2s ease-in-out infinite;
-    box-shadow: 0 5px 15px rgba(0,0,0, 0.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.233);
+    border-radius: 2px;
+}
+.modal-color{
+    background-color: #411f3c;
+}
+
+.btn-color, .select{
+    background-color: rgba(255,255,255, 0.1);
+    border: none;
 }
 .caja{
     position: relative;
@@ -199,15 +202,10 @@ body{
     padding-left: 50px;
 }
 .contenedor .imgBox img{ 
-    width: 70%;
+    width: 44%;
     transition: 0.25s;
 }
-.contenedor .imgBox .adidas-saco-azulrojo{
-    width: 53%;
-}
-.contenedor .imgBox .adidas-leggins-negro{
-    width: 44%;
-}
+
 .contenedor .imgBox img:hover{ 
   transform: scale(1.25) rotate(-15deg); 
 }
@@ -245,4 +243,29 @@ body{
 }
 .contenedor .imgBox .btn:hover{
     letter-spacing: 2px;
+}
+
+
+.productoCarrito {
+    border-left: 5px solid rgb(214, 173, 230);
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
+    margin: 5px 0;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.productoCarrito:hover {
+    border-left: 5px solid rgb(226, 110, 255);
+}
+
+.boton-eliminar {
+    background-color: rgba(0,0,0, 0.05);
+    color: rgb(106, 0, 128);
+    border: none;
+    font-size: 20px;
+}
+
+.boton-eliminar:hover {
+    cursor: pointer;
 }
