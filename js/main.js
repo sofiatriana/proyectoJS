@@ -12,11 +12,7 @@ function mostrarProductos(array) {
         let div = document.createElement('div')
         div.classList.add('container','contenedor', 'mb-5')
         div.innerHTML = `
-        <ul class="thumb">
-                  <li class="d-flex justify-content-center align-items-center"><img src=${contenedor.img} alt=""></li>
-                  <li class="d-flex justify-content-center align-items-center"><img src=${contenedor.img} alt=""></li>
-                  <li class="d-flex justify-content-center align-items-center"><img src=${contenedor.img} alt=""></li>
-              </ul>
+       
               <div class="imgBox d-flex flex-column align-items-center justify-content-between">
                   <h3 class="text-light">${contenedor.prenda} Adidas </h3>
                   <img src=${contenedor.img} alt="" class="imagen">
@@ -45,6 +41,7 @@ function agregarProductos(id){
 
 function actualizarCarrito() {
     const carritoContenedor = document.getElementById('carrito-contenedor')
+    carritoContenedor.innerHTML = ''
     carrito.forEach((contenedor) => {
         carritoContenedor.innerHTML +=   `         
         <div class="productoCarrito">
