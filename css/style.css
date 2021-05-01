@@ -15,6 +15,16 @@ body{
 }
 .btnCarrito{
     margin-left: 1em;
+    background-color:rgba(255,255,255, 0.1);
+    border: none;
+}
+.btnCarrito:hover{
+    border-radius: 2px;
+    background-color: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    transition: 0.25s;
+    animation: animate 2s ease-in-out infinite;
+    box-shadow: 0 5px 15px rgba(0,0,0, 0.05);
 }
 .caja{
     position: relative;
@@ -139,6 +149,7 @@ body{
     left: -25px;
     padding: 60px 40px;
 }
+
 
 .contenedor{
     position: relative;
