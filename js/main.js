@@ -12,7 +12,11 @@ function mostrarProductos(array) {
         let div = document.createElement('div')
         div.classList.add('container','contenedor', 'mb-5')
         div.innerHTML = `
-       
+              <ul class="thumb">
+                    <li class="d-flex justify-content-center align-items-center"><img src=${contenedor.img} alt=""></li>
+                    <li class="d-flex justify-content-center align-items-center"><img src=${contenedor.img} alt=""></li>
+                    <li class="d-flex justify-content-center align-items-center"><img src=${contenedor.img} alt=""></li>
+               </ul>
               <div class="imgBox d-flex flex-column align-items-center justify-content-between">
                   <h3 class="text-light">${contenedor.prenda} Adidas </h3>
                   <img src=${contenedor.img} alt="" class="imagen">
@@ -39,20 +43,35 @@ function agregarProductos(id){
     actualizarCarrito()
 }
 
-function actualizarCarrito() {
-    const carritoContenedor = document.getElementById('carrito-contenedor')
-    carritoContenedor.innerHTML = ''
-    carrito.forEach((contenedor) => {
-        carritoContenedor.innerHTML +=   `         
-        <div class="productoCarrito">
-            <p class="text-light">${contenedor.prenda}</p>
-            <p class="text-light">Precio: ${contenedor.precio}</p>
-            <button class="boton-eliminar"><i class="fas fa-trash-alt"></i></button>
-        </div>  
-        <p class="precioProducto text-light pt-3">Precio total: $<span id="precioTotal"></span></p>`
-    })
+function eliminarProductos(id) {
+    const productosEliminar = carrito.find(el => el.id == id)
+    const indice = carrito.indexOf(productosEliminar)
+    carrito.splice(indice,1)
+
     actualizarCarrito()
 }
+function actualizarCarrito() {
+    const carritoContenedor = document.getElementById('carrito-contenedor')
+    const precioTotal = document.getElementById('precioTotal')
+    const contadorCarrro = document.getElementById('contadorCarro')
+
+
+    carritoContenedor.innerHTML = ''
+
+    carrito.forEach((contenedor) => {
+        carritoContenedor.innerHTML += `
+            <div class="productoCarrito">
+                <p class="text-light">${contenedor.prenda}</p>
+                <p class="text-light">Precio: $${contenedor.precio}</p>
+                <button onclick=eliminarProductos(${contenedor.id})  class="boton-eliminar"><i class="fas fa-trash-alt"></i></button>
+            </div>
+        `
+    })
+    
+    precioTotal.innerText = carrito.reduce((acc, el) => acc += el.precio, 0)
+    contadorCarro.innerText = carrito.length
+}
+
 function filtrarPrendas() {
     
     const talles = document.getElementById('prendas')
