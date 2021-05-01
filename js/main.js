@@ -15,18 +15,23 @@ let productos = [
     {marca: 'Nike', prenda: 'Leggins', precio: 30}
     
 ]
+let carrito = [];
+carrito.push = (productos[3])
+console.log(carrito)
 
- let escojaMarca = productos.filter (function(productos) {
-   return productos.marca === 'Shein';
+let escogerMarca = productos.filter (function(productos) {
+      return productos.marca === 'Adidas';
 })
 .map(function(productos){
-    return productos.prenda;
+     return productos.prenda;
 })
-console.log(escojaMarca);
+    
+
+console.log(escogerMarca);
 
 let escoja = [];
 for (let i = 0; i < productos.length; i++){
-    if (productos[i].marca === 'Zara'){
+    if (productos[i].marca === 'Adidas'){
         escoja.push(productos[i].prenda);
         escoja.push(productos[i].precio);
         
