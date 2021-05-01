@@ -33,13 +33,20 @@ function mostrarProductos(array) {
     
     })
 }
-const carrito = []
+let carrito = []
+let carritoLS = JSON.parse(localStorage.getItem('carrito'))
 
+if (carritoLS) {  
+    carrito = carritoLS
+    actualizarCarrito()
+}
 function agregarProductos(id){
     const productoEscogido = productosAdidas.find (el => el.id == id)
     if (productoEscogido) {
         carrito.push(productoEscogido)
     }
+    
+    localStorage.setItem('carrito', JSON.stringify(carrito))
     actualizarCarrito()
 }
 
@@ -48,6 +55,7 @@ function eliminarProductos(id) {
     const indice = carrito.indexOf(productosEliminar)
     carrito.splice(indice,1)
 
+    localStorage.setItem('carrito', JSON.stringify(carrito))
     actualizarCarrito()
 }
 function actualizarCarrito() {
@@ -90,3 +98,8 @@ talles.addEventListener('change', ()=>{
     filtrarPrendas()
 })
 
+function vaciarCarrito() {
+    localStorage.clear(carrito)
+    carrito = []
+    actualizarCarrito()
+}
