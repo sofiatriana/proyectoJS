@@ -1,10 +1,4 @@
-let bienvenida = '¡Bienvenidos a Parvati!'
 
-function saludoBienvenida() {
-    let otraBienvenida = bienvenida + ' Nos encanta ver a los clientes felices tanto como cuidar a el planeta'
-    alert(otraBienvenida)
-}
-saludoBienvenida()
 
 let productos = [
     {marca: 'Shein', prenda: 'Blusa', precio: 78},
