@@ -1,0 +1,96 @@
+.contenedor-formulario{
+    box-shadow: 0px 0px 70px rgba(102, 102, 102, 0.2);
+    margin: 0.93em 0;
+    display: grid;
+
+#form {
+        width: 31,37em;
+        margin: 50px auto 100px auto;
+        input, textarea {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.875em;
+            width: 100%;   
+            // background: transparent;
+            outline: none;
+            color: white;
+            border: solid 1px #e3ad8c;
+            border-bottom: none;
+            transition: all 0.3s ease-in-out;
+            -webkit-transition: all 0.3s ease-in-out;
+            -moz-transition: all 0.3s ease-in-out;
+            -ms-transition: all 0.3s ease-in-out;
+            background: rgba(255,255,255,0.2);
+           backdrop-filter: blur(4px);
+        }
+        input{
+            height: 50px;
+            padding: 0px 15px 0px 15px;
+        }
+        textarea {
+          width: 100%;
+          max-width: 31,37em;
+          height: 110px;
+          max-height: 110px;
+          padding: 15px;            
+        }      
+          input:hover, textarea:hover {
+            background: #c88861;
+            color: #ffffff;
+          }
+          #submit {
+            width: 100%;
+            padding: 10px 0;
+            margin: -5px 0px 0px 0px;  
+            font-family: 'Lato', sans-serif;
+            font-size: 0.875em;
+            background: transparent;
+            outline:none;
+            cursor: pointer; 
+            border: solid 1px #b3aca7;
+            border-top: none;
+            color: white;
+          }
+          #submit:hover {
+            color:black;
+          }
+}
+}
+.errores{
+        -webkit-boxshadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        -o-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        background: #824520;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        color: #fff;
+        display: none;
+        font-size: 14px;
+        margin-top: -50px;
+        margin-left: 180px;
+        padding: 10px;
+        position: absolute;
+}
+.swal-modal {
+  width: 478px;
+  opacity: 0;
+  pointer-events: none;
+  background-color: #c88861;
+  text-align: center;
+  border-radius: 5px;
+  position: static;
+  margin: 20px auto;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  z-index: 10001;
+  transition: opacity .2s,-webkit-transform .3s;
+  transition: transform .3s,opacity .2s;
+  transition: transform .3s,opacity .2s,-webkit-transform .3s;
+}
+@media (max-width: 500px){
+   .swal-modal {
+       width: calc(100% - 20px);
+    }
+}

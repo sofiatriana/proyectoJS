@@ -1,0 +1,144 @@
+.div-productos{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 1em;
+}
+.container {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    margin: 30px 0;
+    align-items: center;
+    .card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 350px;
+      height: 100%;
+      background: rgba(255,255,255,0.2);
+      box-shadow: 0 15px 15px rgba(0,0,0, 0.05);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-top: 1px solid rgba(255,255,255,0.5);
+      border-left: 1px solid rgba(255,255,255,0.5);
+      border-radius: 20px;
+      backdrop-filter: blur(4px);
+      padding: 60px 20px;
+      padding-left: 50px;
+      h3{
+          color: white;
+          font-size: 1.3em;
+          transition: all 0.75s ease-out;
+          letter-spacing: 0.1em;
+      }
+      img{
+        width: 50%;
+        transition: 0.25s;
+        z-index: 2;
+        transition: all 0.75s ease-out;
+      }
+    }
+    .tamaño {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        span{ 
+            margin-right: 5px;
+            color: white;
+            letter-spacing: 0.1em;
+        }
+        .li{
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+            list-style: none;
+            width: 30px;
+            height: 30px;
+            background: #ffffff;
+            color: #0c2227;
+            margin: 5px;
+            border-radius: 4px;
+            font-weight: 500;
+            box-shadow: 0 2px 10px rgba(0,0,0, 0.1);
+            cursor: pointer;
+            transition: 0.25s;
+        }
+        .li:hover{
+            transform: translateY(-10px);
+        }
+    }
+    .btn{
+        position: absolute;
+        bottom: -30px;
+        background-color: #ffffff;
+        display: inline-block;
+        text-decoration: none;
+        padding: 15px 30px;
+        border-radius: 30px;
+        box-shadow: 0 15px 35px rgba(0,0,0, 0.1);
+        font-weight: 400;
+        color: #0c2227;
+        transition: 0.25s;
+        cursor: pointer;
+    }
+    .btn:hover{
+        letter-spacing: 2px;
+    }
+}
+.div-btns{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 1em;
+    .select, .btnCarrito{
+        border-radius: 1em;
+        padding: 15px 15px;
+        cursor: pointer;
+        box-shadow: 0 15px 35px rgba(0,0,0, 0.1);
+        background: rgba(255,255,255,0.2);
+        backdrop-filter: blur(4px);
+        font-size: 1em;
+    }
+}
+
+ 
+//   .info h3 {
+//     font-size: 1em;
+//     padding: 1em 0;
+//     color: #a3a3a3;
+//     font-weight: lighter;
+//     transition: all 0.75s ease-out;
+//   }
+
+//   .sizes button {
+//     padding: 0.5em 1em;
+//     background: none;
+//     border: none;
+//     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+//     border-radius: 30px;
+//     cursor: pointer;
+//     font-weight: bold;
+//     color: #ffffff;
+//   }
+//   button.active {
+//     background: #585858;
+//     color: white;
+//   }
+//   .purchase {
+//     margin-top: 2em;
+//     transition: all 0.75s ease-out;
+//   }
+//   .purchase button {
+//     width: 100%;
+//     padding: 1em 0em;
+//     background: #824520;
+//     border: none;
+//     color: white;
+//     cursor: pointer;
+//     border-radius: 30px;
+//     font-weight: bolder;
+//   }

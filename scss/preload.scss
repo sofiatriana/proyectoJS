@@ -1,0 +1,59 @@
+
+.display-preload{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    background: #824520;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.5s ease;
+    z-index: 3;
+    .preload{
+        position: relative;
+        width: 60vh;
+        height: 60vh;
+        background-image:linear-gradient(#33ccff,#ff0066);
+        border-radius: 50%;
+        animation: animate 1s linear infinite;
+        span{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image:linear-gradient(#33ccff,#ff0066);
+            border-radius: 50%;
+        }
+    }
+}
+
+
+@keyframes animate {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+.preload:after{
+    content: '';
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    bottom: 25px;
+    right: 5px;
+    left: 25px;
+    border-radius: 50%;
+    background: #824520;
+    z-index: 3;
+}
+.preload span:nth-child(1){
+    filter: blur(5px);
+}
+.preload span:nth-child(2){
+    filter: blur(10px);
+}.preload span:nth-child(3){
+    filter: blur(20px);
+}.preload span:nth-child(4){
+    filter: blur(50px);
+}
