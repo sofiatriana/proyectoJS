@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="../img/logo.icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>PRODUCTOS || PARVATI</title>
+</head>
+<body>
+    <header>
+        <nav>
+          <div class="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+          </div>
+            <ul class="nav-links">
+                <li class="li_nav-links"><a href="../index.html">Inicio</a></li>
+                <li class="li_nav-links"><a href="acercade.html">Acerca de</a></li>
+                <li class="li_nav-links"><a href="productos.html">Productos</a></li>
+                <li class="li_nav-links"><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+      </header>
+      <div class="div-btns">
+          <select id="prenda" class="select">
+              <option value="Todos">Prendas</option>
+              <option value="Leggins">Leggins</option>
+              <option value="Tennis">Tennis</option>
+              <option value="Saco">Saco</option>
+              <option value="Medias">Medias</option>
+              <option value="Buso">Buso</option>
+            </select>
+            <select id="marcas" class="select">
+                <option value="Todos">Marcas</option>
+                <option value="Adidas">Adidas</option>
+                <option value="Nike">Nike</option>
+                <option value="Puma">Puma</option>
+            </select>
+            <select id="talles" class="select">
+                <option value="all">Todos</option>
+                <option value="XL">XL</option>
+                <option value="L">L</option>
+                <option value="M">M</option>
+                <option value="S">S</option>
+                <option value="XS">XS</option>
+                <option value="XXS">XXS</option>
+                <option value="35">35</option>
+                <option value="36">36</option>
+                <option value="37">37</option>
+                <option value="38">38</option>
+                <option value="39">39</option>
+            </select>
+            <button class="btnCarrito" id="btn-carrito" data-toggle="modal" data-target=".modal"><i class="fas fa-shopping-cart fa-2x"></i>
+                <span id="contadorCarro">0</span>
+            </button>
+      </div>
+
+      <div class="modal-contenedor">
+        <div class="modal-carrito">
+            <h3>Carrito</h3>
+            <button id="carritoCerrar"><i class="fas fa-times-circle"></i></button>
+            <div id="carrito-contenedor">
+                <!-- <div class="productoEnCarrito">
+                    <p>Buzo 1</p>
+                    <p>Precio: $1200</p>
+                    <button class="boton-eliminar"><i class="fas fa-trash-alt"></i></button>
+                </div> -->
+            </div>
+            <p class="precioProducto">Precio total: $<span id="precioTotal"></span>k COP</p>
+        </div>
+     </div>
+
+      <div class="div-productos" id="div-productos">
+          <!-- <div class="container">
+                    <div class="card">  
+                          <h3>Adidas</h3>
+                         <img src="../img/adidas-tennis-morados.png" alt="" class="imagen">
+                          <ul class="tamaño">
+                            <span>Talla:</span>
+                            <li class="li">S</li>
+                            <span>Precio:</span>
+                            <li class="li">54</li>
+                         </ul>
+                         <button class="btn">Añadir al carrito</button>
+                    </div>
+             </div>      -->
+      </div>
+    
+      
+      <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+      <script src="https://kit.fontawesome.com/70bed78305.js" crossorigin="anonymous"></script>
+      <script src="../js/modal.js"></script>
+      <script src="../js/stock.js"></script>
+      <script src="../js/main.js"></script>
+</body>
+</html>

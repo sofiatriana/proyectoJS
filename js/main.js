@@ -1,38 +1,43 @@
 
-const divProductos = document.getElementById('divProductos')
+// NAV RESPONSIVE
+const hamburger = document.querySelector(".hamburger");
+const navLinks = document.querySelector(".nav-links");
+const links = document.querySelectorAll(".nav-links li");
 
-mostrarProductos(productosAdidas)
+hamburger.addEventListener("click", () => {
+  navLinks.classList.toggle("open");
+  links.forEach(link => {
+    link.classList.toggle("fade");
+  });
+});
 
-function mostrarProductos(array) {
+// MOSTRAR PRODUCTOS
+const divVuelos = $('#div-productos')
 
-    divProductos.innerHTML = ''
+mostrarProductos(productos)
 
-    array.forEach((contenedor) => {
-    
-        let div = document.createElement('div')
-        div.classList.add('container','contenedor', 'mb-5')
-        div.innerHTML = `
-              <ul class="thumb">
-                    <li class="d-flex justify-content-center align-items-center"><img src=${contenedor.img} alt=""></li>
-                    <li class="d-flex justify-content-center align-items-center"><img src=${contenedor.img} alt=""></li>
-                    <li class="d-flex justify-content-center align-items-center"><img src=${contenedor.img} alt=""></li>
-               </ul>
-              <div class="imgBox d-flex flex-column align-items-center justify-content-between">
-                  <h3 class="text-light">${contenedor.prenda} Adidas </h3>
-                  <img src=${contenedor.img} alt="" class="imagen">
-                  <ul class="tamaño d-flex justify-content-center align-items-center">
-                      <span class="text-light">Talla:</span>
-                      <li class="d-flex justify-content-center align-items-center">${contenedor.talla}</li>
-                      <span class="text-light">Precio:</span>
-                      <li class="d-flex justify-content-center align-items-center">${contenedor.precio}</li>
-                  </ul>
-                  <button class="btn" onclick=agregarProductos(${contenedor.id})>Añadir al carrito</button>
-              </div>
-        `
-        divProductos.appendChild(div)
-    
-    })
+function mostrarProductos(array) {    
+
+    array.forEach((producto) => {
+    divVuelos.append( `
+    <div class="container">
+                    <div class="card">  
+                          <h3>${producto.prenda} ${producto.marca}</h3>
+                         <img src=${producto.img} alt="" class="imagen">
+                          <ul class="tamaño">
+                            <span>Talla:</span>
+                            <li class="li">${producto.talla}</li>
+                            <span>Precio:</span>
+                            <li class="li">${producto.precio}</li>
+                         </ul>
+                         <button class="btn"  onclick=agregarProductos(${producto.id})>Añadir al carrito</button>
+                    </div>
+             </div>   
+    `)
+   })
 }
+
+// Agregar productos al carrito
 let carrito = []
 let carritoLS = JSON.parse(localStorage.getItem('carrito'))
 
@@ -41,7 +46,7 @@ if (carritoLS) {
     actualizarCarrito()
 }
 function agregarProductos(id){
-    const productoEscogido = productosAdidas.find (el => el.id == id)
+    const productoEscogido = productos.find (el => el.id == id)
     if (productoEscogido) {
         carrito.push(productoEscogido)
     }
@@ -49,57 +54,76 @@ function agregarProductos(id){
     localStorage.setItem('carrito', JSON.stringify(carrito))
     actualizarCarrito()
 }
-
+// eliminar productos del carrito 
 function eliminarProductos(id) {
-    const productosEliminar = carrito.find(el => el.id == id)
-    const indice = carrito.indexOf(productosEliminar)
-    carrito.splice(indice,1)
+  const productosEliminar = carrito.find(el => el.id == id)
+  const indice = carrito.indexOf(productosEliminar)
+  carrito.splice(indice,1)
 
-    localStorage.setItem('carrito', JSON.stringify(carrito))
-    actualizarCarrito()
+  localStorage.setItem('carrito', JSON.stringify(carrito))
+  actualizarCarrito()
 }
+
+// actualizar carrito / modal
 function actualizarCarrito() {
-    const carritoContenedor = document.getElementById('carrito-contenedor')
-    const precioTotal = document.getElementById('precioTotal')
-    const contadorCarrro = document.getElementById('contadorCarro')
+  const carritoContenedor = document.getElementById('carrito-contenedor')
+  const precioTotal = document.getElementById('precioTotal')
+  const contadorCarro = document.getElementById('contadorCarro')
 
 
-    carritoContenedor.innerHTML = ''
+  carritoContenedor.innerHTML = ''
+  
 
-    carrito.forEach((contenedor) => {
-        carritoContenedor.innerHTML += `
-            <div class="productoCarrito">
-                <p class="text-light">${contenedor.prenda}</p>
-                <p class="text-light">Precio: $${contenedor.precio}</p>
-                <button onclick=eliminarProductos(${contenedor.id})  class="boton-eliminar"><i class="fas fa-trash-alt"></i></button>
-            </div>
-        `
-    })
-    
-    precioTotal.innerText = carrito.reduce((acc, el) => acc += el.precio, 0)
-    contadorCarro.innerText = carrito.length
+  carrito.forEach((producto) => {
+      carritoContenedor.innerHTML += `
+      <div class="productoEnCarrito">
+            <p>${producto.prenda} ${producto.marca}</p>
+            <p>Talla: ${producto.talla}</p>
+            <p>Precio: ${producto.precio}K</p>
+           <button class="boton-eliminar" onclick=eliminarProductos(${producto.id})><i class="fas fa-trash-alt"></i></button>
+      </div>
+      `
+  })
+  
+  precioTotal.innerText = carrito.reduce((acc, el) => acc += el.precio, 0)
+  contadorCarro.innerText = carrito.length
 }
 
-function filtrarPrendas() {
+
+
+
+
+// function filtrar() {
     
-    const talles = document.getElementById('prendas')
-    
-    if (talles.value == 'Todos') {
-        mostrarProductos(productosAdidas)
-    } else {
-        const arrayFiltrado = productosAdidas.filter(contenedor => contenedor.prenda == prendas.value)
-        mostrarProductos(arrayFiltrado)
-    }
-}
+//   const talles = document.getElementById('talles')
+  
+//   if (talles.value == 'all') {
+//       mostrarProductos(productos)
+//   } else {
+//       const arrayFiltrado = productos.filter(producto => producto.talla == talles.value)
+//       mostrarProductos(arrayFiltrado)
+//   }
+// }
 
-const talles = document.getElementById('prendas')
+// const talles = document.getElementById('talles')
 
-talles.addEventListener('change', ()=>{
-    filtrarPrendas()
-})
+// talles.addEventListener('change', ()=>{
+//   filtrar()
+// })
 
-function vaciarCarrito() {
-    localStorage.clear(carrito)
-    carrito = []
-    actualizarCarrito()
-}
+
+
+
+// Jquery nav responsive
+// const hamburger = $(".hamburger");
+// const navLinks = $(".nav-links");
+// const links = $(".nav-links .li_nav-links");
+
+// hamburger.on("click", () => {
+//   navLinks.toggleClass("open");
+
+// NO APARECEN LOS LINKS?
+//   links.each(link => {
+//     link.toggleClass("fade");
+//   });
+// });
