@@ -1,10 +1,13 @@
+.main{
+    box-shadow: inset 0 0 500px #824520;
+}
 .div-productos{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     margin: 1em;
-}
-.container {
+
+ .container {
     position: relative;
     width: 400px;
     height: 400px;
@@ -85,10 +88,11 @@
         color: #0c2227;
         transition: 0.25s;
         cursor: pointer;
-    }
-    .btn:hover{
+     }
+     .btn:hover{
         letter-spacing: 2px;
-    }
+     }
+   }
 }
 .div-btns{
     display: flex;

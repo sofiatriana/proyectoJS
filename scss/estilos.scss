@@ -3,6 +3,7 @@
 @import "./cards.scss";
 @import "./modal.scss";
 @import "./contacto.scss";
+@import "./acercade.scss";
 /*variables*/
 $fuente-body:'Roboto Mono', monospace;;
 $colorwhite:#fff;
@@ -42,7 +43,7 @@ body {
 }
 .home{
 	height: 90vh;
-	position: absolute;
+	// position: absolute;
 	width: 100%;
 }
 .home-content{
