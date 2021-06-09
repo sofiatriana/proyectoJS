@@ -8,4 +8,11 @@ $(window).on("load", function(){
 // SVG
 $(".imgSlide").slideUp(1000).slideDown(1000);
 
+// typed animation
+let typed = new Typed(".typing", {
+    strings: ["Conscientes","Ecológicas", "Seguras"],
+    typeSpeed: 100,
+    backSpeed: 60,
+    loop: true
+})
 

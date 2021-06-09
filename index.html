@@ -28,31 +28,110 @@
           <div class="line"></div>
         </div>
           <ul class="nav-links">
-            <li class="li_nav-links"><a href="index.html">Inicio</a></li>
-            <li class="li_nav-links"><a href="./pages/acercade.html">Acerca de</a></li>
-            <li class="li_nav-links"><a href="./pages/productos.html">Productos</a></li>
-            <li class="li_nav-links"><a href="./pages/contacto.html">Contacto</a></li>
+            <li class="li_nav-links"><a href="#home">Inicio</a></li>
+            <li class="li_nav-links"><a href="#acercade">Acerca de</a></li>
+            <li class="li_nav-links"><a href="#productos">Productos</a></li>
+            <li class="li_nav-links"><a href="#contacto">Contacto</a></li>
           </ul>
       </nav>
     </header>
 
-      <section class="home">
+      <section class="home" id="home">
         <div class="home-content">
           <div class="home-presentation">
             <h1>Hola, bienvenidos a Parvati</h1>
             <div class="texto">
-              Compras conscientes
-              
+              Compras <span class="typing"></span>   
             </div>
           </div>
           <img src="./img/home.svg" alt="home" class="imgSlide"/>
         </div>
       </section>
+      <section class="main" id="productos">
+        <div class="div-btns">
+         
+          <select id="prendas" class="select">
+            <option value="Todos">Todos</option>
+            <option value="Leggins">Leggins</option>
+            <option value="Tennis">Tennis</option>
+            <option value="Saco">Saco</option>
+            <option value="Medias">Medias</option>
+            <option value="Buso">Buso</option>
+         </select>
+         
+            <button class="btnCarrito" id="btn-carrito" data-toggle="modal" data-target=".modal"><i class="fas fa-shopping-cart fa-2x"></i>
+                <span id="contadorCarro">0</span>
+            </button>
+      </div>
+      <div class="modal-contenedor">
+        <div class="modal-carrito">
+            <h3>Carrito</h3>
+            <button id="carritoCerrar"><i class="fas fa-times-circle"></i></button>
+            <div id="carrito-contenedor">
+                
+            </div>
+            <p class="precioProducto">Precio total: $<span id="precioTotal"></span>k COP</p>
+            <button onclick=finalizarCompra() class="select">COMPRAR</button>       
+        </div>
+     </div>
+
+      <div class="div-productos" id="div-productos">
+          
+      </div>
+      </section>
+      <section id="acercade">
+      <div class="container">
+        <div class="caja">
+          <span class="span-acercaDe"></span>
+          <div class="content">
+            <h2>¿Que es Parvati?</h2>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic reiciendis, quas asperiores repellendus,
+              ipsum impedit architecto quibusdam molestiae 
+            </p>
+          </div>
+        </div>
+        <div class="caja">
+          <span class="span-acercaDe"></span>
+          <div class="content">
+            <h2>¿Quienes conforman Parvati?</h2>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic reiciendis, quas asperiores repellendus,
+              ipsum impedit architecto quibusdam molestiae 
+            </p>
+          </div>
+        </div>
+        <div class="caja">
+          <span class="span-acercaDe"></span>
+          <div class="content">
+            <h2>¿Como surgió Parvati?</h2>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic reiciendis, quas asperiores repellendus,
+              ipsum impedit architecto quibusdam molestiae 
+            </p>
+          </div>
+        </div>
+      </div>
+      </section>
+
+      <section id="contacto">
+        <div class="contenedor-formulario">
+          <form id="form">
+            <input id="name" type="text" placeholder="NAME">
+            <input id="email" type="text" placeholder="E-MAIL">
+            <textarea id="message" type="text" placeholder="MESSAGE"></textarea>
+            <div class="response"></div>
+             <input id="submit" type="submit" value="GO!">
+          </form>
+       </div>
+      </section>
 
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/70bed78305.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
     <script src="js/animation.js"></script>
-    <script src="js/stock.js"></script>
+    
     <script src="js/main.js"></script>
+    <script src="js/modal.js"></script>
 </body>
 </html>
