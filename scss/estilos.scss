@@ -16,6 +16,22 @@ $colorblack:#000;
     box-sizing: border-box;
 	text-decoration: none;
 }
+html{
+	scroll-behavior: smooth;
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background: #c88861;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #96725c;
+}
 body {
 	font-family: $fuente-body;
 	font-weight: 400;
@@ -64,6 +80,7 @@ body {
 		color:$colorwhite;
 		span{
 			color: #824520;
+			font-weight: 400;
 		}
 	}
 }

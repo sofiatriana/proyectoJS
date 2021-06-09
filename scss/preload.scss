@@ -15,7 +15,6 @@
         height: 60vh;
         background-image:linear-gradient(#33ccff,#ff0066);
         border-radius: 50%;
-        animation: animate 1s linear infinite;
         span{
             position: absolute;
             width: 100%;
@@ -41,11 +40,12 @@
     top: 25px;
     right: 25px;
     bottom: 25px;
-    right: 5px;
+    right: 25px;
     left: 25px;
     border-radius: 50%;
     background: #824520;
     z-index: 3;
+    animation: animate 1s linear infinite;
 }
 .preload span:nth-child(1){
     filter: blur(5px);
